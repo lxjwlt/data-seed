@@ -1,12 +1,22 @@
 {
   "name": "data-seed",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Fake data generator",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mocha": "mocha",
+    "test": "mocha --reporter dot tests || exit 0"
   },
-  "keywords": ["js", "data", "generator", "seed"],
+  "keywords": [
+    "js",
+    "data",
+    "generator",
+    "seed"
+  ],
   "author": "lxjwlt",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
 }
