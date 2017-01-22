@@ -1,3 +1,6 @@
+
+'use strict';
+
 const assert = require('chai').assert;
 const deep = require('../../../src/util/deep.js');
 
