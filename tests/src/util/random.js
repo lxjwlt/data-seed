@@ -6,6 +6,20 @@ const random = require('../../../src/util/random.js');
 
 describe('random.js', function () {
 
+    describe('#', () => {
+        it('default arguments', () => {
+            let num = random();
+            assert.isNumber(num);
+            assert.notStrictEqual(String(num).match(/\./), null);
+        });
+
+        it('random format', () => {
+            let str = random('name: www id: dddd');
+            assert.isString(str);
+            assert.match(str, /^name:\s[a-z]{3}\sid:\s[0-9]{4}$/);
+        });
+    });
+
     describe('#int', () => {
         it('default arguments', () => {
             let num = random.int();

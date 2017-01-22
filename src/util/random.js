@@ -1,7 +1,24 @@
 'use strict';
 
-function random () {
+function random (str) {
+    if (typeof str !== 'string') {
+        return random.float(arguments[0], arguments[1]);
+    }
 
+    let strList = str.split('');
+
+    strList = strList.map((char) => {
+        switch (char) {
+            case 'd':
+                return random.int(0, 9);
+            case 'w':
+                return random.letter();
+            default:
+                return char;
+        }
+    });
+
+    return strList.join('');
 }
 
 random.float = (start=0, end=1) => {
