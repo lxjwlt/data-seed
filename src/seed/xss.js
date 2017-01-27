@@ -1,11 +1,8 @@
-class xss {
-    constructor () {
-        if (!(this instanceof xss)) {
-            return new xss();
-        }
+'use strict';
 
-        let seed = this;
-    }
+class xss {
+    constructor () {}
+
 
     format () {
         return '<a href="javascript:void(0)">click me!</a>';

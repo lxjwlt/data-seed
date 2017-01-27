@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const xssSeed = new (require('../../../src/seed/xss.js'))();
 
-describe('deep.js', function () {
+describe('seed/xss.js', function () {
 
     it('format', function () {
           assert.equal(xssSeed.format(), '<a href="javascript:void(0)">click me!</a>');
