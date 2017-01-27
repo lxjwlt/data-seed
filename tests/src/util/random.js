@@ -14,8 +14,8 @@ describe('random.js', function () {
         });
 
         it('random format', () => {
-            let str = random('name: www id: dddd');
-            assert.isString(str);
+            let str = `name: ${random('www')} id: ${random('dddd')}`;
+
             assert.match(str, /^name:\s[a-z]{3}\sid:\s[0-9]{4}$/);
         });
     });
@@ -88,7 +88,7 @@ describe('random.js', function () {
         });
 
         it('one item', () => {
-            let letter = random.letter('a');
+            let letter = random.array(['a']);
 
             assert.strictEqual(letter, 'a');
         });
