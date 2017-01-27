@@ -14,7 +14,7 @@ describe('random.js', function () {
         });
 
         it('random format', () => {
-            let str = `name: ${random('www')} id: ${random('dddd')}`;
+            let str = `name: ${random.letter().repeat(3)} id: ${String(random.int()).repeat(4)}`;
 
             assert.match(str, /^name:\s[a-z]{3}\sid:\s[0-9]{4}$/);
         });
