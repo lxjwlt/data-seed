@@ -52,6 +52,46 @@ describe('random.js', function () {
     });
 
     describe('#letter', () => {
+        it('default arguments', () => {
+            let letter = random.letter();
+            let code = letter.charCodeAt(0);
+
+            assert.isString(letter);
+            assert.isTrue(code >= 97 && code <= 122);
+        });
+
+        it('uppercase', () => {
+            let letter = random.letter('A', 'B');
+
+            assert.isTrue(letter === 'A' || letter === 'B');
+        });
+
+        it('uppercase and lowercase', () => {
+            let letter = random.letter('a', 'B');
+
+            assert.isTrue(letter === 'a' || letter === 'b');
+        });
+
+        it('should be one letter', () => {
+            let letter = random.letter('b', 'b');
+
+            assert.strictEqual(letter, 'b');
+        });
+    });
+
+    describe('#array', () => {
+
+        it('multi items', () => {
+            let num = random.array([1, 2]);
+
+            assert.isTrue(num === 1 || num === 2);
+        });
+
+        it('one item', () => {
+            let letter = random.letter('a');
+
+            assert.strictEqual(letter, 'a');
+        });
 
     });
 });
