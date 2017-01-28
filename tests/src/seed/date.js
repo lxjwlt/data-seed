@@ -38,7 +38,16 @@ describe('seed/date.js', function () {
 
     describe('#format', function () {
 
-        it('format date', function () {
+        it('specify range', function () {
+            let endPoint = '2012/1/1';
+            let startPoint = '2012/1/1';
+            let timestamp = dateSeed.format('YY-MM-D', startPoint, endPoint);
+
+            assert.isString(timestamp);
+            assert.strictEqual(timestamp, '12-01-1');
+        });
+
+        it('specify time list', function () {
             let list = ['2014/4/22'];
             let timestamp = dateSeed.format('YY-MM-D', list);
 
