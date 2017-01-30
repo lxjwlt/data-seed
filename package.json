@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "mocha": "mocha",
-    "test": "mocha --reporter dot tests || exit 0"
+    "test": "mocha --reporter dot ./tests/**/*.js || exit 0"
   },
   "keywords": [
     "js",
