@@ -1,6 +1,6 @@
 {
   "name": "data-seed",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Fake data generator",
   "main": "./src/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "seed"
   ],
   "author": "lxjwlt",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
@@ -23,5 +23,16 @@
   "dependencies": {
     "moment": "^2.17.1",
     "uuid": "^3.0.1"
-  }
+  },
+  "files": [
+      "./src"
+  ],
+  "engines": {
+    "node": ">= 6.9.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lxjwlt/data-seed.git"
+  },
+  "homepage": "https://github.com/lxjwlt/data-seed"
 }
