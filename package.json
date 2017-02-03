@@ -1,6 +1,6 @@
 {
   "name": "data-seed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fake data generator",
   "main": "./src/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "uuid": "^3.0.1"
   },
   "files": [
-      "./src"
+      "src"
   ],
   "engines": {
     "node": ">= 6.9.5"
