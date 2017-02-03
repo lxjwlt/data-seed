@@ -40,7 +40,7 @@ The callback function accepts 4 arguments:
 - `DEEP`: identify data loop
 - `DONE`: return `DONE` will stop loop
 - `level`: record the deep level of data
-- `isFirst`: record first data
+- `isFirst`: whether first data
 
 Create a tree nodes:
 
