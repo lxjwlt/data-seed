@@ -1,16 +1,11 @@
 'use strict';
 
-class xss {
-    constructor () {}
+let xss = () => {
+    return '<script>alert("xss");</script>';
+};
 
-
-    format () {
-        return '<a href="javascript:void(0)">click me!</a>';
-    }
-
-    strict () {
-        return '<script>alert("xss");</script>';
-    }
-}
+xss.noStrict = () => {
+    return '<a href="javascript:void(0)">click me!</a>';
+};
 
 module.exports = xss;
