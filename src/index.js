@@ -15,7 +15,9 @@ let seed = {
         url: require('./seed/url'),
         uuid: require('./seed/uuid'),
         word: require('./seed/word'),
-        xss: require('./seed/xss')
+        xss: require('./seed/xss'),
+        ip4: require('./seed/ip4'),
+        mac: require('./seed/mac')
     }
 };
 
