@@ -1,6 +1,6 @@
 # data-seed
 
-[![NPM version][npm-image]][npm-url]
+![Node version][node-image] [![NPM version][npm-image]][npm-url]
 
 Fake data generator for js develop.
 
@@ -89,3 +89,8 @@ let data = deep((DEEP, DONE, level, isFirst) => {
 - `seed.word([min=1, max=10])`: return a word randomly.
 - `seed.xss()`: return xss script, eg. `<script>alert("xss");</script>`
     - `seed.xss.noStrict()`: return html text, eg. `<a href="javascript:void(0)">click me!</a>`
+
+[npm-url]: https://www.npmjs.com/package/data-seed
+[npm-image]: https://img.shields.io/npm/v/data-seed.svg
+
+[node-image]: https://img.shields.io/node/v/data-seed.svg
