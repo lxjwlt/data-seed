@@ -88,3 +88,4 @@ let data = deep((DEEP, DONE, level, isFirst) => {
 - `seed.uuid()`: return uuid.
 - `seed.word([min=1, max=10])`: return a word randomly.
 - `seed.xss()`: return xss script, eg. `<script>alert("xss");</script>`
+    - `seed.xss.noStrict()`: return html text, eg. `<a href="javascript:void(0)">click me!</a>`
