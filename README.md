@@ -72,6 +72,17 @@ let data = deep((DEEP, DONE, level, isFirst) => {
 - `util.random.letter([min='a', max='z'])`: create a letter randomly.
 - `util.random.array(arr)`: pick a item within the array randomly.
 
+## `util.arr(num, callback)`
+
+Callback function return element of array:
+
+```javascript
+const {util: {arr}} = require('data-seed');
+
+arr(2, () => 10); // [10, 10]
+arr(2, 10); // [10, 10]
+```
+
 # Seeds
 
 - `seed.color()`: return a safe web color randomly.
