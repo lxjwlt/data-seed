@@ -3,7 +3,8 @@
 let seed = {
     util: {
         deep: require('./util/deep'),
-        random: require('./util/random')
+        random: require('./util/random'),
+        arr: require('./util/arr')
     },
     seed: {
         color: require('./seed/color'),
