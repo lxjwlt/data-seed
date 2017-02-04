@@ -20,7 +20,8 @@ let seed = {
         ip4: require('./seed/ip4'),
         mac: require('./seed/mac'),
         isbn: require('./seed/isbn'),
-        time: require('./seed/time')
+        time: require('./seed/time'),
+        img: require('./seed/img')
     }
 };
 
