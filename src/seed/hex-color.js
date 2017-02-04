@@ -3,11 +3,18 @@
 let random = require('../util/random');
 
 function hexColor () {
-    let startPoint = 0;
-    let endPoint = parseInt('ffffff', 16);
-    let hex = random.int(startPoint, endPoint).toString(16);
+    return hex(0, 16777215);
+}
 
-    hex = '0'.repeat(6 - hex.length) + hex;
+hexColor.short = () => {
+    return hex(0, 4095);
+};
+
+function hex (start, end) {
+    let hex = random.int(start, end).toString(16);
+    let len = end.toString(16).length;
+
+    hex = '0'.repeat(len - hex.length) + hex;
 
     return '#' + hex;
 }
