@@ -36,7 +36,7 @@ function isbn (version) {
             sum += list[i] * FACTOR[i % 2];
         }
 
-        let checkNum = 10 - sum % 10;
+        let checkNum = (10 - sum % 10) % 10;
 
         result = list.join('') + checkNum;
     }
