@@ -18,7 +18,8 @@ let seed = {
         word: require('./seed/word'),
         xss: require('./seed/xss'),
         ip4: require('./seed/ip4'),
-        mac: require('./seed/mac')
+        mac: require('./seed/mac'),
+        isbn: require('./seed/isbn')
     }
 };
 
