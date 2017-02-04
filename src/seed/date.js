@@ -20,6 +20,10 @@ function date (start='1970/1/1', end=Date.now()) {
     return time;
 }
 
+date.toSecond = function () {
+    return Math.ceil(date.apply(null, arguments) / 1000);
+};
+
 date.format = (format, start, end) => {
     return moment(date(start, end)).format(format);
 };

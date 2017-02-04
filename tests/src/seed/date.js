@@ -36,6 +36,22 @@ describe('seed/date.js', function () {
 
     });
 
+    describe('@toSecond', () => {
+
+        it('should be integer', () => {
+            assert.isNumber(dateSeed.toSecond());
+            assert.notMatch(String(dateSeed.toSecond()), /\./);
+        });
+
+        it('should be second unit', function () {
+            let timestamp = dateSeed.toSecond(Date.now(), Date.now());
+            let now = Date.now();
+
+            assert.isTrue(String(now).length - String(timestamp).length === 3);
+        });
+
+    });
+
     describe('#format', function () {
 
         it('specify range', function () {
