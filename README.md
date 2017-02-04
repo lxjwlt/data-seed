@@ -90,8 +90,10 @@ arr(2, 10); // [10, 10]
     - `seed.date.format(format[, start, end])`: return formatted date time. see [momentJS#format](http://momentjs.com/docs/#/displaying/format/)
 - `seed.email()`: return email randomly.
 - `seed.hexColor()`: return color hex value randomly.
+    - `seed.hexColor.short()`: return short color hex value randomly.
 - `seed.ip4()`: return ip4 address randomly.
     - `seed.ip4.cidr()`: return ip4 cidr address, like 1.1.1.1/24
+- `seed.isbn(version)`: return an isbn string randomly. (version 10 or 13)
 - `seed.lorem([min=1, max=5])`: return lorem text randomly.
 - `seed.mac()`: return mac address randomly.
 - `seed.paragraph([min=1, max=10])`: return paragraph text randomly.
