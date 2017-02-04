@@ -19,7 +19,8 @@ let seed = {
         xss: require('./seed/xss'),
         ip4: require('./seed/ip4'),
         mac: require('./seed/mac'),
-        isbn: require('./seed/isbn')
+        isbn: require('./seed/isbn'),
+        time: require('./seed/time')
     }
 };
 
