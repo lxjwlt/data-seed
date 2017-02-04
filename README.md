@@ -70,7 +70,8 @@ let data = deep((DEEP, DONE, level, isFirst) => {
 - `util.random.float([min = 0, max = 1])`: create a float number randomly.
 - `util.random.int([min=0, max=1])`: create a integer number randomly.
 - `util.random.letter([min='a', max='z'])`: create a letter randomly.
-- `util.random.array(arr)`: pick a item within the array randomly.
+- `util.random.array(arr)`: return a item within the array randomly.
+- `util.random.one([...])`: return a item from arguments randomly.
 
 ## `util.arr(num, callback)`
 
@@ -87,10 +88,13 @@ arr(2, 10); // [10, 10]
 
 - `seed.color()`: return a safe web color randomly.
 - `seed.date([start='1970/1/1', end=Date.now()])`: return timestamp randomly.
+    - `seed.date.toSecond([start='1970/1/1', end=Date.now()])`: return timestamp in seconds.
     - `seed.date.format(format[, start, end])`: return formatted date time. see [momentJS#format](http://momentjs.com/docs/#/displaying/format/)
 - `seed.email()`: return email randomly.
 - `seed.hexColor()`: return color hex value randomly.
     - `seed.hexColor.short()`: return short color hex value randomly.
+- `seed.img()`: return a img url randomly.
+    - `seed.img.base64()`: return a img base64 string randomly.
 - `seed.ip4()`: return ip4 address randomly.
     - `seed.ip4.cidr()`: return ip4 cidr address, like 1.1.1.1/24
 - `seed.isbn(version)`: return an isbn string randomly. (version 10 or 13)
