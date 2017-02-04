@@ -42,4 +42,8 @@ random.array = (arr) => {
     return arr[random.int(0, arr.length - 1)];
 };
 
+random.one = function () {
+    return random.array(Array.from(arguments));
+};
+
 module.exports = random;

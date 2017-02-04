@@ -94,4 +94,20 @@ describe('random.js', function () {
         });
 
     });
+
+    describe('#one', () => {
+
+        it('multi items', () => {
+            let num = random.one(1, 2, 3);
+
+            assert.include([1, 2, 3], num);
+        });
+
+        it('one item', () => {
+            let letter = random.one('a');
+
+            assert.strictEqual(letter, 'a');
+        });
+
+    });
 });
