@@ -97,6 +97,12 @@ arr(2, 10); // [10, 10]
     - `seed.img.base64()`: return a img base64 string randomly.
 - `seed.ip4()`: return ip4 address randomly.
     - `seed.ip4.cidr()`: return ip4 cidr address, like 1.1.1.1/24
+    - `seed.ip4.mask([start=1, end=32])`: return ip4 mask, like 255.255.0.0
+    - `seed.ip4.mask.binary([start=1, end=32])`: return ip4 mask in binary
+- `seed.ip6()`: return ip6 address randomly.
+    - `seed.ip6.cidr()`: return ip6 cidr address, like 65ef:57bd:f2f0:5688:8491:7713:e37a:9dc5/110
+    - `seed.ip6.mask([start=1, end=128])`: return ip6 mask, like ffff:ffff:0:0:0:0:0:0
+    - `seed.ip6.mask.binary([start=1, end=128])`: return ip6 mask in binary
 - `seed.isbn(version)`: return an isbn string randomly. (version 10 or 13)
 - `seed.lorem([min=1, max=5])`: return lorem text randomly.
 - `seed.mac()`: return mac address randomly.
