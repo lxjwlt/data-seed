@@ -11,4 +11,25 @@ ip4.cidr = () => {
     return ip4() + '/' + random.int(1, 32);
 };
 
+ip4.mask = (start = 1, end = 32) => {
+    let binary = ip4.mask.binary(start, end);
+    let segments = [];
+
+    for (let i = 0; i + 8 <= binary.length; i += 8) {
+        let binarySegment = binary.slice(i, i + 8);
+
+        segments.push(parseInt(binarySegment, 2));
+    }
+
+    return segments.join('.');
+};
+
+ip4.mask.binary = (start = 1, end = 32) => {
+    let num = random.int(start, end);
+
+    let str = '1'.repeat(num);
+
+    return str + '0'.repeat(32 - str.length);
+};
+
 module.exports = ip4;
