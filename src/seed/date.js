@@ -2,8 +2,9 @@
 
 let moment = require('moment');
 let random = require('../util/random');
+const {wrap} = require('../util/hooks');
 
-function date (start='1970/1/1', end=Date.now()) {
+let date = wrap(function (start='1970/1/1', end=Date.now()) {
     let time;
 
     if (Array.isArray(start)) {
@@ -18,14 +19,14 @@ function date (start='1970/1/1', end=Date.now()) {
     }
 
     return time;
-}
+});
 
-date.toSecond = function () {
+date.toSecond = wrap(function () {
     return Math.ceil(date.apply(null, arguments) / 1000);
-};
+});
 
-date.format = (format, start, end) => {
+date.format = wrap((format, start, end) => {
     return moment(date(start, end)).format(format);
-};
+});
 
 module.exports = date;

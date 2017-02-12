@@ -1,11 +1,13 @@
 'use strict';
 
-let xss = () => {
-    return '<script>alert("xss");</script>';
-};
+const {wrap} = require('../util/hooks');
 
-xss.noStrict = () => {
+let xss = wrap(() => {
+    return '<script>alert("xss");</script>';
+});
+
+xss.noStrict = wrap(() => {
     return '<a href="javascript:void(0)">click me!</a>';
-};
+});
 
 module.exports = xss;

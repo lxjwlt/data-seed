@@ -2,8 +2,9 @@
 
 let random = require('../util/random');
 let arr = require('../util/arr');
+const {wrap} = require('../util/hooks');
 
-function url (options) {
+let url = wrap(function (options) {
 
     options = Object.assign({
         protocol: true,
@@ -24,7 +25,7 @@ function url (options) {
     }).join('&') : '';
 
     return protocol + host + path + query;
-}
+});
 
 function randomWord () {
     return arr(random.int(2, 5), () => random.letter()).join('');

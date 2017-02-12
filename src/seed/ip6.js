@@ -2,16 +2,17 @@
 
 const random = require('../util/random');
 const arr = require('../util/arr');
+const {wrap} = require('../util/hooks');
 
-let ip6 = () => {
+let ip6 = wrap(() => {
     return arr(8, () => random.int(0, 65535).toString(16)).join(':');
-};
+});
 
-ip6.cidr = () => {
+ip6.cidr = wrap(() => {
     return ip6() + '/' + random.int(1, 128);
-};
+});
 
-ip6.mask = (start = 1, end = 128) => {
+ip6.mask = wrap((start = 1, end = 128) => {
     let binary = ip6.mask.binary(start, end);
     let segments = [];
 
@@ -22,14 +23,14 @@ ip6.mask = (start = 1, end = 128) => {
     }
 
     return segments.join(':');
-};
+});
 
-ip6.mask.binary = (start = 1, end = 128) => {
+ip6.mask.binary = wrap((start = 1, end = 128) => {
     let num = random.int(start, end);
 
     let str = '1'.repeat(num);
 
     return str + '0'.repeat(128 - str.length);
-};
+});
 
 module.exports = ip6;

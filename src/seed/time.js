@@ -1,8 +1,9 @@
 'use strict';
 
 let random = require('../util/random');
+const {wrap} = require('../util/hooks');
 
-function time (hourType = 24) {
+let time = wrap(function (hourType = 24) {
     let hour = random.int(0, 23);
     let minute = random.int(0, 59);
     let tail = '';
@@ -13,6 +14,6 @@ function time (hourType = 24) {
     }
 
     return hour + ':' + minute + tail;
-}
+});
 
 module.exports = time;

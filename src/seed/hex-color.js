@@ -1,14 +1,15 @@
 'use strict';
 
 let random = require('../util/random');
+const {wrap} = require('../util/hooks');
 
-function hexColor () {
+let hexColor = wrap(function () {
     return hex(0, 16777215);
-}
+});
 
-hexColor.short = () => {
+hexColor.short = wrap(() => {
     return hex(0, 4095);
-};
+});
 
 function hex (start, end) {
     let hex = random.int(start, end).toString(16);

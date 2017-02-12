@@ -1,6 +1,7 @@
 'use strict';
 
 let random = require('../util/random');
+const {wrap} = require('../util/hooks');
 
 const COLORS = [
     'AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure',
@@ -34,9 +35,9 @@ const COLORS = [
     'WhiteSmoke', 'Yellow', 'YellowGreen'
 ];
 
-function color () {
+let color = wrap(function () {
     return random.array(COLORS);
-}
+});
 
 color.COLORS = COLORS;
 

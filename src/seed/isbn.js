@@ -2,10 +2,11 @@
 
 let random = require('../util/random');
 let arr = require('../util/arr');
+const {wrap} = require('../util/hooks');
 
 const FACTOR = [1, 3];
 
-function isbn (version) {
+let isbn = wrap(function (version) {
 
     if (!version) {
         version = random.array([10, 13]);
@@ -42,6 +43,6 @@ function isbn (version) {
     }
 
     return result;
-}
+});
 
 module.exports = isbn;
