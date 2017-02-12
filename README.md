@@ -86,22 +86,22 @@ arr(2, 10); // [10, 10]
 
 # Seeds
 
-- `seed.color()`: return a safe web color randomly.
+- `seed.color()`: return a safe web color randomly. like `DarkGreen`
 - `seed.date([start='1970/1/1', end=Date.now()])`: return timestamp randomly.
     - `seed.date.toSecond([start='1970/1/1', end=Date.now()])`: return timestamp in seconds.
     - `seed.date.format(format[, start, end])`: return formatted date time. see [momentJS#format](http://momentjs.com/docs/#/displaying/format/)
 - `seed.email()`: return email randomly.
-- `seed.hexColor()`: return color hex value randomly.
-    - `seed.hexColor.short()`: return short color hex value randomly.
+- `seed.hexColor()`: return color hex value randomly. like `#c9c9c9`
+    - `seed.hexColor.short()`: return short color hex value randomly. like `#666`
 - `seed.img()`: return a img url randomly.
     - `seed.img.base64()`: return a img base64 string randomly.
 - `seed.ip4()`: return ip4 address randomly.
-    - `seed.ip4.cidr()`: return ip4 cidr address, like 1.1.1.1/24
-    - `seed.ip4.mask([start=1, end=32])`: return ip4 mask, like 255.255.0.0
+    - `seed.ip4.cidr()`: return ip4 cidr address, like `1.1.1.1/24`
+    - `seed.ip4.mask([start=1, end=32])`: return ip4 mask, like `255.255.0.0`
     - `seed.ip4.mask.binary([start=1, end=32])`: return ip4 mask in binary
 - `seed.ip6()`: return ip6 address randomly.
-    - `seed.ip6.cidr()`: return ip6 cidr address, like 65ef:57bd:f2f0:5688:8491:7713:e37a:9dc5/110
-    - `seed.ip6.mask([start=1, end=128])`: return ip6 mask, like ffff:ffff:0:0:0:0:0:0
+    - `seed.ip6.cidr()`: return ip6 cidr address, like `65ef:57bd:f2f0:5688:8491:7713:e37a:9dc5/110`
+    - `seed.ip6.mask([start=1, end=128])`: return ip6 mask, like `ffff:ffff:0:0:0:0:0:0`
     - `seed.ip6.mask.binary([start=1, end=128])`: return ip6 mask in binary
 - `seed.isbn(version)`: return an isbn string randomly. (version 10 or 13)
 - `seed.lorem([min=1, max=5])`: return lorem text randomly.
