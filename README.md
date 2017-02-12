@@ -80,7 +80,7 @@ Callback function return element of array:
 ```javascript
 const {util: {arr}} = require('data-seed');
 
-arr(2, () => 10); // [10, 10]
+arr(2, (i) => i); // [0, 1]
 arr(2, 10); // [10, 10]
 ```
 
