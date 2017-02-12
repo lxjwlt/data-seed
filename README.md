@@ -4,13 +4,13 @@
 
 Fake data generator for js develop.
 
-# Install
+## Install
 
 ```
 npm install data-seed
 ```
 
-# Usage
+## Usage
 
 ```javascript
 const {util, seed} = require('data-seed');
@@ -29,9 +29,9 @@ seed.ip4(); // 23.4.126.0
 ip4(); // 1.1.1.123
 ```
 
-# Utils
+## Utils
 
-## `util.deep`
+### `util.deep`
 
 `util.deep` accepts a callback function which will return data.
 
@@ -65,7 +65,7 @@ let data = deep((DEEP, DONE, level, isFirst) => {
 */
 ```
 
-## `util.random`
+### `util.random`
 
 - `util.random.float([min = 0, max = 1])`: create a float number randomly.
 - `util.random.int([min=0, max=1])`: create a integer number randomly.
@@ -73,7 +73,7 @@ let data = deep((DEEP, DONE, level, isFirst) => {
 - `util.random.array(arr)`: return a item within the array randomly.
 - `util.random.one([...])`: return a item from arguments randomly.
 
-## `util.arr(num, callback)`
+### `util.arr(num, callback)`
 
 Callback function return element of array:
 
@@ -84,7 +84,7 @@ arr(2, () => 10); // [10, 10]
 arr(2, 10); // [10, 10]
 ```
 
-# Seeds
+## Seeds
 
 - `seed.color()`: return a safe web color randomly. like `DarkGreen`
 - `seed.date([start='1970/1/1', end=Date.now()])`: return timestamp randomly.
@@ -112,6 +112,18 @@ arr(2, 10); // [10, 10]
 - `seed.word([min=1, max=10])`: return a word randomly.
 - `seed.xss()`: return xss script, eg. `<script>alert("xss");</script>`
     - `seed.xss.noStrict()`: return html text, eg. `<a href="javascript:void(0)">click me!</a>`
+
+## custom seed
+
+```javascript
+const dataSeed = require('data-seed');
+
+dataSeed.register('sum', (a, b) => {
+    return a + b;
+});
+
+dataSeed.seed.sum(1, 2); // 3
+```
 
 [npm-url]: https://www.npmjs.com/package/data-seed
 [npm-image]: https://img.shields.io/npm/v/data-seed.svg
