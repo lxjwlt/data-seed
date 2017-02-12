@@ -4,6 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('chai').assert;
 const indexMod = require('../../src/index');
+const xssSeed = require('../../src/seed/xss');
+const ip6 = require('../../src/seed/ip6');
+const hooks = require('../../src/util/hooks');
 
 describe('index.js', () => {
 
@@ -44,6 +47,17 @@ describe('index.js', () => {
         assert.property(indexMod.seed, 'sum');
         assert.strictEqual(indexMod.seed.sum(1, 2), 3);
 
+    });
+
+    it('add hook', () => {
+
+        indexMod.hook(() => {
+            return xssSeed();
+        });
+
+        assert.strictEqual(ip6.cidr(), xssSeed());
+
+        hooks.clear();
     });
 
 });

@@ -26,7 +26,10 @@ let mod = {
         time: require('./seed/time'),
         img: require('./seed/img')
     },
-    register: (name, func) => {
+    hook (func) {
+        hooks.set(func);
+    },
+    register (name, func) {
         mod.seed[name] = hooks.wrap(func);
     }
 };
