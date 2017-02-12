@@ -1,6 +1,8 @@
 'use strict';
 
-let seed = {
+const hooks = require('./util/hooks');
+
+let mod = {
     util: {
         deep: require('./util/deep'),
         random: require('./util/random'),
@@ -18,11 +20,15 @@ let seed = {
         word: require('./seed/word'),
         xss: require('./seed/xss'),
         ip4: require('./seed/ip4'),
+        ip6: require('./seed/ip6'),
         mac: require('./seed/mac'),
         isbn: require('./seed/isbn'),
         time: require('./seed/time'),
         img: require('./seed/img')
+    },
+    register: (name, func) => {
+        mod.seed[name] = hooks.wrap(func);
     }
 };
 
-module.exports = seed;
+module.exports = mod;

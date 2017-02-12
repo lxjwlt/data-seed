@@ -15,7 +15,11 @@ describe('index.js', () => {
 
     it('utils completeness', () => {
 
-        completeness(indexMod.util, '../../src/util');
+        assert.property(indexMod.util, 'arr');
+        assert.property(indexMod.util, 'deep');
+        assert.property(indexMod.util, 'random');
+
+        assert.property(indexMod, 'register');
 
     });
 
@@ -28,6 +32,17 @@ describe('index.js', () => {
     it('seeds completeness', () => {
 
         completeness(indexMod.seed, '../../src/seed');
+
+    });
+
+    it('register custom seed', () => {
+
+        indexMod.register('sum', (a, b) => {
+            return a + b;
+        });
+
+        assert.property(indexMod.seed, 'sum');
+        assert.strictEqual(indexMod.seed.sum(1, 2), 3);
 
     });
 
@@ -44,11 +59,15 @@ function strictEqualMod (obj, dir) {
     }
 }
 
-function completeness (obj, dir) {
+function completeness (obj, dir, exclude = []) {
     for (let dirPath of fs.readdirSync(path.resolve(__dirname, dir))) {
         let pathConfig = path.parse(dirPath);
         let fileName = pathConfig.name;
         let seedName = fileName.replace(/-([a-z])/g, (v, $1) => $1.toUpperCase());
+
+        if (exclude.includes(seedName)) {
+            continue;
+        }
 
         assert.property(obj, seedName);
     }
