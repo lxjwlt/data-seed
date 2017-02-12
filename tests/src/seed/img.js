@@ -11,7 +11,8 @@ describe('seed/img.js', () => {
     });
 
     it('should be img url', () => {
-        assert.notStrictEqual(imgSeed().match(/^(?:[a-z]+\/)*[a-z]+\.(?:png|jpg|svg|gif)$/), null);
+        let url = imgSeed();
+        assert.match(url, /^(?:[a-z]+\/)*[a-z]+\.(?:png|jpg|svg|gif)$/);
     });
 
     describe('@base64', () => {

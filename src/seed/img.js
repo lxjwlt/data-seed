@@ -6,7 +6,7 @@ const wordSeed = require('./word');
 const {wrap} = require('../util/hooks');
 
 let img = wrap(() => {
-    let path = arr(random.int(0, 3), wordSeed).join('/');
+    let path = arr(random.int(0, 3), () => wordSeed()).join('/');
     let tail = random.array(['png', 'svg', 'jpg', 'gif']);
 
     path = path ? path + '/' : '';
