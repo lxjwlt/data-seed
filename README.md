@@ -125,6 +125,22 @@ dataSeed.register('sum', (a, b) => {
 dataSeed.seed.sum(1, 2); // 3
 ```
 
+## hook
+
+Add hook to override data:
+
+```javascript
+const dataSeed = require('data-seed');
+
+dataSeed.hook(() => {
+    return dataSeed.seed.xss();
+});
+
+dataSeed.seed.ip4(); // xss string
+dataSeed.seed.ip4.cidr(); // xss string
+dataSeed.seed.lorem(); // xss string
+```
+
 [npm-url]: https://www.npmjs.com/package/data-seed
 [npm-image]: https://img.shields.io/npm/v/data-seed.svg
 
