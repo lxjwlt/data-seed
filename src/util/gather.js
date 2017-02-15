@@ -22,6 +22,8 @@ class gather {
             self.data = [data];
         }
 
+        self.length = self.data.length;
+
         self.restore();
     }
 

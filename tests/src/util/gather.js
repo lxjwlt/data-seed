@@ -5,6 +5,12 @@ const gather = require('../../../src/util/gather');
 
 describe('util/gather.js', () => {
 
+    it('should be right length', () => {
+        assert.strictEqual(gather([1,2,3,4]).length, 4);
+        assert.strictEqual(gather({name:1}).length, 1);
+        assert.strictEqual(gather('2').length, 1);
+    });
+
     it('next item in array', () => {
         let arr = [1, 2, 3];
         let list = gather(arr);
@@ -45,6 +51,23 @@ describe('util/gather.js', () => {
 
     });
 
+    it('next item in object', () => {
+        let list = gather(1);
+
+        assert.strictEqual(list.next(), 1);
+        assert.strictEqual(list.next(), undefined);
+
+    });
+
+    it('loop item', () => {
+        let list = gather([1]);
+
+        assert.strictEqual(list.next(), 1);
+        assert.strictEqual(list.next(), undefined);
+        assert.strictEqual(list.next(), 1);
+
+    });
+
     it('iterator arr', () => {
         let arr = [1, 2, 3];
         let list = gather(arr);
@@ -61,7 +84,7 @@ describe('util/gather.js', () => {
 
     });
 
-    it('next item in object', () => {
+    it('iterator object', () => {
         let obj = {
             item1: 1,
             item2: 2,
