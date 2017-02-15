@@ -84,6 +84,32 @@ arr(2, (i) => i); // [0, 1]
 arr(2, 10); // [10, 10]
 ```
 
+### `util.gather(data)`
+
+```javascript
+const {util: {gather}} = require('data-seed');
+
+let list = gather([1, 2, 3]);
+
+let item1 = list.next(); // one of [1, 2, 3] randomly
+let item2 = list.next(); // one of [1, 2, 3] randomly
+let item3 = list.next(); // one of [1, 2, 3] randomly
+
+item1 !== item2; // true
+item2 !== item3; // true
+item1 !== item3; // true
+
+list.next(); // undefined
+```
+
+And support iterator:
+
+```javascript
+for (let value of gather([1, 2, 3])) {
+    value; // one of [1, 2, 3] randomly
+}
+```
+
 ## Seeds
 
 - `seed.color()`: return a safe web color randomly. like `DarkGreen`
