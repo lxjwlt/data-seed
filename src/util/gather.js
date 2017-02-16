@@ -8,6 +8,8 @@ class gather {
 
         data = JSON.parse(JSON.stringify(data));
 
+        data = unique(data);
+
         self.originData = data;
 
         self.isObject = typeof data === 'object' && data && !Array.isArray(data);
@@ -61,6 +63,20 @@ class gather {
             }
         }
     }
+}
+
+function unique (arr) {
+    if (!Array.isArray(arr)) {
+        return arr;
+    }
+
+    let set = new Set();
+
+    for (let item of arr) {
+        set.add(item);
+    }
+
+    return Array.from(set.values());
 }
 
 module.exports = (data) => {

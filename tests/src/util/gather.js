@@ -51,12 +51,21 @@ describe('util/gather.js', () => {
 
     });
 
-    it('next item in object', () => {
+    it('next item in literal', () => {
         let list = gather(1);
 
         assert.strictEqual(list.next(), 1);
         assert.strictEqual(list.next(), undefined);
 
+    });
+
+    it('unique item in arr', () => {
+        let list = gather([1,1,1,1]);
+
+        assert.strictEqual(list.next(), 1);
+        assert.strictEqual(list.next(), undefined);
+        assert.strictEqual(list.next(), 1);
+        assert.strictEqual(list.next(), undefined);
     });
 
     it('loop item', () => {
