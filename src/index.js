@@ -6,7 +6,8 @@ let mod = {
     util: {
         deep: require('./util/deep'),
         random: require('./util/random'),
-        arr: require('./util/arr')
+        arr: require('./util/arr'),
+        gather: require('./util/gather')
     },
     seed: {
         color: require('./seed/color'),

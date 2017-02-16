@@ -18,9 +18,9 @@ describe('index.js', () => {
 
     it('utils completeness', () => {
 
-        assert.property(indexMod.util, 'arr');
-        assert.property(indexMod.util, 'deep');
-        assert.property(indexMod.util, 'random');
+        completeness(indexMod.util, '../../src/util', [
+            'hooks'
+        ]);
 
         assert.property(indexMod, 'register');
 
