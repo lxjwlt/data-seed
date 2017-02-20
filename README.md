@@ -4,6 +4,10 @@
 
 Fake data generator for js develop.
 
+## when to use?
+
+When we are developing, we need mock data to simulate the process of online requests, which are random, readable, safe, or even illegal.
+
 ## Install
 
 ```
