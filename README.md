@@ -121,6 +121,7 @@ for (let value of gather([1, 2, 3])) {
     - `seed.hexColor.short()`: return short color hex value randomly. like `#666`
 - `seed.img()`: return a img url randomly.
     - `seed.img.base64()`: return a img base64 string randomly.
+    - `seed.img.dummy([width, height, background, color])`: return a dummy url, eg. https://dummyimage.com/697x903.png/000/45cb91.
 - `seed.ip4()`: return ip4 address randomly.
     - `seed.ip4.cidr()`: return ip4 cidr address, like `1.1.1.1/24`
     - `seed.ip4.mask([start=1, end=32])`: return ip4 mask, like `255.255.0.0`
