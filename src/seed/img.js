@@ -3,6 +3,7 @@
 const random = require('../util/random');
 const arr = require('../util/arr');
 const wordSeed = require('./word');
+const hexColor = require('./hex-color');
 const {wrap} = require('../util/hooks');
 
 let img = wrap(() => {
@@ -20,6 +21,19 @@ img.base64 = wrap(() => {
     return 'data:image/png;base64,' +
         arr(len, () => random.array([random.letter(), random.int(0, 9), '/', '+']))
             .join('');
+});
+
+img.dummy = wrap((width, height, background, color) => {
+    width = !width && width !== 0 ? random.int(0, 2000) : width;
+    height = !height && height !== 0 ? random.int(0, 2000) : height;
+
+    background = !background ? hexColor() : background;
+    color = !color ? hexColor() : color;
+
+    background = background.replace('#', '');
+    color = color.replace('#', '');
+
+    return `http://dummyimage.com/${width}x${height}.png/${background}/${color}`;
 });
 
 module.exports = img;

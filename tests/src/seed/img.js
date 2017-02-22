@@ -15,7 +15,7 @@ describe('seed/img.js', () => {
         assert.match(url, /^(?:[a-z]+\/)*[a-z]+\.(?:png|jpg|svg|gif)$/);
     });
 
-    describe('@base64', () => {
+    describe('#base64', () => {
 
         it('should be base64', () => {
             let url = imgSeed.base64();
@@ -23,6 +23,23 @@ describe('seed/img.js', () => {
 
             assert.match(url, /^data:image\/png;base64/);
             assert.isTrue(validator.isBase64(base64));
+        });
+
+    });
+
+    describe('#dummy', () => {
+
+        it('should be url', () => {
+            let url = imgSeed.dummy();
+
+            assert.isTrue(validator.isURL(url));
+            assert.match(url, /^http:\/\/dummyimage\.com\/\d+x\d+\.png\/[0-9a-f]+\/[0-9a-f]+$/);
+        });
+
+        it('specific arguments', () => {
+            let url = imgSeed.dummy(200, 100, '#000', '#ccc');
+            assert.strictEqual(url,
+                'http://dummyimage.com/200x100.png/000/ccc');
         });
 
     });
