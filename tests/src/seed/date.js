@@ -11,10 +11,9 @@ describe('seed/date.js', function () {
         it('default arguments', function () {
             let timestamp = dateSeed();
             let endPoint = Date.now();
-            let startPoint = moment('1970/1/1').toDate().getTime();
 
             assert.isNumber(timestamp);
-            assert.isTrue(timestamp >= startPoint && timestamp < endPoint);
+            assert.isTrue(timestamp >= 0 && timestamp < endPoint);
         });
 
         it('specify range', function () {
@@ -27,11 +26,12 @@ describe('seed/date.js', function () {
         });
 
         it('specify time list', function () {
-            let list = ['2010/1/1', '2020/1/12', '1982/12/2'];
+            let now = Date.now();
+            let list = [now, now + 1, now + 2];
             let timestamp = dateSeed(list);
 
             assert.isNumber(timestamp);
-            assert.isTrue(list.includes(moment(timestamp).format('YYYY/M/D')));
+            assert.isTrue(list.includes(timestamp));
         });
 
     });
@@ -55,20 +55,17 @@ describe('seed/date.js', function () {
     describe('#format', function () {
 
         it('specify range', function () {
-            let endPoint = '2012/1/1';
-            let startPoint = '2012/1/1';
-            let timestamp = dateSeed.format('YY-MM-D', startPoint, endPoint);
+            let timestamp = dateSeed.format('YY-MM-D', Date.now(), Date.now());
 
             assert.isString(timestamp);
-            assert.strictEqual(timestamp, '12-01-1');
+            assert.strictEqual(timestamp, moment().format('YY-MM-D'));
         });
 
         it('specify time list', function () {
-            let list = ['2014/4/22'];
-            let timestamp = dateSeed.format('YY-MM-D', list);
+            let timestamp = dateSeed.format('YY-MM-D', [Date.now()]);
 
             assert.isString(timestamp);
-            assert.strictEqual(timestamp, '14-04-22');
+            assert.strictEqual(timestamp, moment().format('YY-MM-D'));
         });
 
     });
