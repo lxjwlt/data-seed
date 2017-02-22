@@ -4,7 +4,7 @@ let moment = require('moment');
 let random = require('../util/random');
 const {wrap} = require('../util/hooks');
 
-let date = wrap(function (start='1970/1/1', end=Date.now()) {
+let date = wrap(function (start=0, end=Date.now()) {
     let time;
 
     if (Array.isArray(start)) {
