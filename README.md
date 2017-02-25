@@ -2,7 +2,7 @@
 
 ![Node version][node-image] [![NPM version][npm-image]][npm-url]
 
-Fake data generator for js develop.
+Mock data for js develop.
 
 ## when to use?
 
