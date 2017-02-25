@@ -23,4 +23,28 @@ describe('seed/url.js', () => {
         }), '');
     });
 
+    it('#protocol', () => {
+        assert.isString(urlSeed.protocol());
+        assert.isOk(urlSeed.protocol());
+    });
+
+    it('#domain', () => {
+        assert.isString(urlSeed.domain());
+        assert.isOk(urlSeed.domain());
+    });
+
+    it('#host', () => {
+        assert.isString(urlSeed.host());
+        assert.match(urlSeed.host(), /^[a-z]+(?:\.[a-z]+)+$/);
+    });
+
+    it('#path', () => {
+        assert.isString(urlSeed.path());
+        assert.match(urlSeed.path(), /^(?:\/[a-z]+)+$/);
+    });
+
+    it('#query', () => {
+        assert.isString(urlSeed.query());
+        assert.match(urlSeed.query(), /^\?[a-z]+=[a-z]+(?:&[a-z]+=[a-z]+)*$/);
+    });
 });

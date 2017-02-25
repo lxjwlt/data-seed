@@ -3,6 +3,7 @@
 let random = require('../util/random');
 let arr = require('../util/arr');
 const {wrap} = require('../util/hooks');
+const wordSeed = require('./word');
 
 let url = wrap(function (options) {
 
@@ -55,7 +56,7 @@ url.query = wrap(() => {
 });
 
 function randomWord () {
-    return arr(random.int(2, 5), () => random.letter()).join('');
+    return wordSeed(2, 5);
 }
 
 module.exports = url;
