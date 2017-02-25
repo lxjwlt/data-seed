@@ -140,7 +140,9 @@ for (let value of gather([1, 2, 3])) {
 - `seed.lorem([min=1, max=5])`: return lorem text randomly.
 - `seed.mac()`: return mac address randomly.
 - `seed.md5()`: return md5 string randomly.
+- `seed.mimeType()`: return MIME Type randomly.
 - `seed.paragraph([min=1, max=10])`: return paragraph text randomly.
+- `seed.time([hourType=24])`: return time randomly, eg. `13:17` in default, `1:17 PM` when `hourType=12`
 - `seed.url([options = {protocol:true, host: true, path: true, query: true}])`: return a url randomly.
     - `seed.url.protocol`: return url protocol randomly, like http, file, ftp.
     - `seed.url.host`: return url host randomly.
