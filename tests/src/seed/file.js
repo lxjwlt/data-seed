@@ -3,7 +3,7 @@
 const assert = require('chai').assert;
 const fileSeed = require('../../../src/seed/file');
 
-describe('seed/url.js', () => {
+describe('seed/file.js', () => {
 
     it('should be string', () => {
         assert.isString(fileSeed());

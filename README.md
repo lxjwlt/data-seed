@@ -121,7 +121,7 @@ for (let value of gather([1, 2, 3])) {
     - `seed.date.toSecond([start=0, end=Date.now()])`: return timestamp in seconds.
     - `seed.date.format(format[, start, end])`: return formatted date time. see [momentJS#format](http://momentjs.com/docs/#/displaying/format/)
 - `seed.email()`: return email randomly.
-- `seed.file()`: return file name randomly.
+- `seed.file()`: return file name randomly. like filename.jpg
     - `seed.file.extension()`: return file extension randomly.
 - `seed.hexColor()`: return color hex value randomly. like `#c9c9c9`
     - `seed.hexColor.short()`: return short color hex value randomly. like `#666`
