@@ -2,6 +2,7 @@
 
 const assert = require('chai').assert;
 const urlSeed = require('../../../src/seed/url');
+const validator = require('validator');
 
 describe('seed/url.js', () => {
 
@@ -9,13 +10,8 @@ describe('seed/url.js', () => {
         assert.isString(urlSeed());
     });
 
-    it('should be diff', () => {
-        assert.notStrictEqual(urlSeed(), urlSeed());
-    });
-
     it('should be right format', () => {
-        const urlReg = /^(?:http|https):\/\/(?:[a-z]+\.)+[a-z]+(?:\/[a-z]+)+\?[a-z]+=[a-z]+(?:&[a-z]+=[a-z]+)*$/;
-        assert.notStrictEqual(urlSeed().match(urlReg), null);
+        assert.isTrue(validator.isURL(urlSeed()));
     });
 
     it('specific argument', () => {
