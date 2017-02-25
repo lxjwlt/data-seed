@@ -29,7 +29,7 @@ let mod = {
         file: require('./seed/file'),
         md5: require('./seed/md5'),
         mimeType: require('./seed/mime-type'),
-        sha1: require('./seed/sha1')
+        sha: require('./seed/sha')
     },
     hook (func) {
         hooks.set(func);
