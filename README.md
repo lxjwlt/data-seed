@@ -183,6 +183,19 @@ dataSeed.seed.ip4.cidr(); // xss string
 dataSeed.seed.lorem(); // xss string
 ```
 
+Accepts the value return by last hook as first argument:
+
+```javascript
+const dataSeed = require('data-seed');
+const {random} = dataSeed.util;
+
+dataSeed.hook((value) => {
+    return random.one(value, null);
+});
+
+dataSeed.seed.ip4(); // ip string or null
+```
+
 [npm-url]: https://www.npmjs.com/package/data-seed
 [npm-image]: https://img.shields.io/npm/v/data-seed.svg
 
