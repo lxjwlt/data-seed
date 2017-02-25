@@ -10,7 +10,7 @@ describe('seed/url.js', () => {
     });
 
     it('should be right format', () => {
-        assert.match(fileSeed(), /^[a-z\-_]+(?:\.[a-z\-_]+)$/);
+        assert.match(fileSeed(), /^[a-z\-_0-9]+(?:\.[a-z\-_0-9]+)+$/);
     });
 
     it('#extension', () => {

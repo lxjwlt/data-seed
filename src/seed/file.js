@@ -6,7 +6,7 @@ const {wrap} = require('../util/hooks');
 const wordSeed = require('./word');
 
 let file = wrap(function () {
-    return arr(random.int(1, 3), () => wordSeed()).concat([file.extension()]).join('.');
+    return arr(random.int(1, 2), () => randomWord()).concat([file.extension()]).join('.');
 });
 
 file.extension = wrap(() => {
@@ -16,5 +16,9 @@ file.extension = wrap(() => {
         'conf', 'xls'
     ]);
 });
+
+function randomWord () {
+    return wordSeed(1, 5) + random.one('-', '_', '') + wordSeed(1, 5);
+}
 
 module.exports = file;
