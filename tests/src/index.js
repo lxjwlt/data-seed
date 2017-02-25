@@ -60,6 +60,17 @@ describe('index.js', () => {
         hooks.clear();
     });
 
+    it('chain hook', () => {
+
+        indexMod
+            .hook(() => 1)
+            .hook(() => 2);
+
+        assert.strictEqual(ip6.cidr(), 2);
+
+        hooks.clear();
+    });
+
 });
 
 function strictEqualMod (obj, dir) {

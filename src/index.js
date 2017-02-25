@@ -33,6 +33,7 @@ let mod = {
     },
     hook (func) {
         hooks.set(func);
+        return mod;
     },
     register (name, func) {
         mod.seed[name] = hooks.wrap(func);
