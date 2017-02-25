@@ -117,8 +117,8 @@ for (let value of gather([1, 2, 3])) {
 ## Seeds
 
 - `seed.color()`: return a safe web color randomly. like `DarkGreen`
-- `seed.date([start='1970/1/1', end=Date.now()])`: return timestamp randomly.
-    - `seed.date.toSecond([start='1970/1/1', end=Date.now()])`: return timestamp in seconds.
+- `seed.date([start=0, end=Date.now()])`: return timestamp randomly.
+    - `seed.date.toSecond([start=0, end=Date.now()])`: return timestamp in seconds.
     - `seed.date.format(format[, start, end])`: return formatted date time. see [momentJS#format](http://momentjs.com/docs/#/displaying/format/)
 - `seed.email()`: return email randomly.
 - `seed.hexColor()`: return color hex value randomly. like `#c9c9c9`
@@ -139,6 +139,11 @@ for (let value of gather([1, 2, 3])) {
 - `seed.mac()`: return mac address randomly.
 - `seed.paragraph([min=1, max=10])`: return paragraph text randomly.
 - `seed.url([options = {protocol:true, host: true, path: true, query: true}])`: return a url randomly.
+    - `seed.url.protocol`: return url protocol randomly, like http, file, ftp.
+    - `seed.url.host`: return url host randomly.
+    - `seed.url.domain`: return top level domain randomly, like com, net.
+    - `seed.url.path`: return url path randomly.
+    - `seed.url.query`: return url query string randomly.
 - `seed.uuid()`: return uuid.
 - `seed.word([min=1, max=10])`: return a word randomly.
 - `seed.xss()`: return xss script, eg. `<script>alert("xss");</script>`
