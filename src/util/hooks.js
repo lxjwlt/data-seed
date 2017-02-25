@@ -3,13 +3,17 @@
 let hooks = [];
 let inHookRun = false;
 
-function hookValue (initValue) {
+function hookValue (initValue, seedFunc) {
     let value = initValue;
 
     inHookRun = true;
 
-    for (let hook of hooks) {
-        value = hook(value);
+    for (let item of hooks) {
+        if (seedFunc && item.seed && seedFunc !== item.seed ||
+            !seedFunc && item.seed) {
+            continue;
+        }
+        value = item.hook(value);
     }
 
     inHookRun = false;
@@ -17,8 +21,16 @@ function hookValue (initValue) {
     return value;
 }
 
-hookValue.set = (func) => {
-    hooks.push(func);
+hookValue.set = (seed, hook) => {
+    if (typeof hook === 'undefined') {
+        hook = seed;
+        seed = null;
+    }
+
+    hooks.push({
+        seed: seed,
+        hook: hook
+    });
 };
 
 hookValue.clear = () => {
@@ -26,9 +38,9 @@ hookValue.clear = () => {
 };
 
 hookValue.wrap = (func) => {
-    return function (...args) {
+    return function SeedFunc (...args) {
         let value = func(...args);
-        return inHookRun ? value : hookValue(value);
+        return inHookRun ? value : hookValue(value, SeedFunc);
     };
 };
 
