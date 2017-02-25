@@ -25,6 +25,11 @@ describe('util/hooks.js', () => {
 
         hooks.set((value) => {
             assert.strictEqual(value, xss);
+            return 1;
+        });
+
+        hooks.set((value) => {
+            assert.strictEqual(value, 1);
         });
 
         assert.strictEqual(xssSeed(), undefined);
