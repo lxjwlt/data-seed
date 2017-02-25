@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('chai').assert;
-const mimeType = require('../../../src/seed/mimeType');
+const mimeType = require('../../../src/seed/mime-type');
 
 describe('seed/mimeType.js', () => {
 

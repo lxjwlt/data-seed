@@ -25,7 +25,10 @@ let mod = {
         mac: require('./seed/mac'),
         isbn: require('./seed/isbn'),
         time: require('./seed/time'),
-        img: require('./seed/img')
+        img: require('./seed/img'),
+        file: require('./seed/file'),
+        md5: require('./seed/md5'),
+        mimeType: require('./seed/mime-type')
     },
     hook (func) {
         hooks.set(func);
