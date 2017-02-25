@@ -139,6 +139,7 @@ for (let value of gather([1, 2, 3])) {
 - `seed.isbn(version)`: return an isbn string randomly. (version 10 or 13)
 - `seed.lorem([min=1, max=5])`: return lorem text randomly.
 - `seed.mac()`: return mac address randomly.
+- `seed.md5()`: return md5 string randomly.
 - `seed.paragraph([min=1, max=10])`: return paragraph text randomly.
 - `seed.url([options = {protocol:true, host: true, path: true, query: true}])`: return a url randomly.
     - `seed.url.protocol`: return url protocol randomly, like http, file, ftp.
