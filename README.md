@@ -173,27 +173,35 @@ Add hook to override data:
 
 ```javascript
 const dataSeed = require('data-seed');
+const {seed} = dataSeed;
 
-dataSeed.hook(() => {
-    return dataSeed.seed.xss();
-});
+dataSeed.hook(() => seed.xss());
 
-dataSeed.seed.ip4(); // xss string
-dataSeed.seed.ip4.cidr(); // xss string
-dataSeed.seed.lorem(); // xss string
+seed.ip4(); // xss string
+seed.ip4.cidr(); // xss string
+seed.lorem(); // xss string
 ```
 
-Accepts the value return by last hook as first argument:
+Accept the value returned by last hook as first argument:
 
 ```javascript
-const dataSeed = require('data-seed');
 const {random} = dataSeed.util;
 
 dataSeed.hook((value) => {
     return random.one(value, null);
 });
 
-dataSeed.seed.ip4(); // ip string or null
+seed.ip4(); // ip string or null
+```
+
+Hook for specific seed:
+
+```javascript
+dataSeed.hook(seed.mac, () => seed.xss());
+
+seed.mac(); // xss string
+seed.ip4(); // ip string
+seed.lorem(); // lorem string
 ```
 
 [npm-url]: https://www.npmjs.com/package/data-seed
