@@ -28,7 +28,8 @@ let mod = {
         img: require('./seed/img'),
         file: require('./seed/file'),
         md5: require('./seed/md5'),
-        mimeType: require('./seed/mime-type')
+        mimeType: require('./seed/mime-type'),
+        sha1: require('./seed/sha1')
     },
     hook (func) {
         hooks.set(func);
