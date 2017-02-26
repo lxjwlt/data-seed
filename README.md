@@ -116,6 +116,7 @@ for (let value of gather([1, 2, 3])) {
 
 ## Seeds
 
+- `seed.avatar()`: return random avatar url from https://robohash.org/.
 - `seed.color()`: return a safe web color randomly. like `DarkGreen`
 - `seed.date([start=0, end=Date.now()])`: return timestamp randomly.
     - `seed.date.toSecond([start=0, end=Date.now()])`: return timestamp in seconds.
