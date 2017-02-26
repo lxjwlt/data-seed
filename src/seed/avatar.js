@@ -2,14 +2,15 @@
 
 const random = require('../util/random');
 const arr = require('../util/arr');
+const {wrap} = require('../util/hooks');
 
-function avatar (size) {
+let avatar = wrap((size) => {
     size = size || random.int(50, 100);
 
     let set = random.int(1, 3);
 
     return `https://robohash.org/${randomText()}.png?size=${size}x${size}&set=set${set}`;
-}
+});
 
 function randomText () {
     return arr(random.int(3, 20), () =>
