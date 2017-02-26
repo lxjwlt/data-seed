@@ -14,7 +14,7 @@ describe('seed/word.js', () => {
 
         it('should be chinese word', () => {
             assert.isString(wordSeed.cn());
-            assert.match(wordSeed.cn(), /^[\u4e00-\u9fa5]+$/)
+            assert.match(wordSeed.cn(), /^[\u4e00-\u9fa5]$/)
         });
 
     });
