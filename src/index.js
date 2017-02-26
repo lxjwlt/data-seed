@@ -30,7 +30,8 @@ let mod = {
         md5: require('./seed/md5'),
         mimeType: require('./seed/mime-type'),
         sha: require('./seed/sha'),
-        avatar: require('./seed/avatar')
+        avatar: require('./seed/avatar'),
+        name: require('./seed/name')
     },
     hook (func) {
         hooks.set(func);
