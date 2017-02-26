@@ -36,6 +36,11 @@ describe('random.js', function () {
             let num = random.int(10, 10);
             assert.strictEqual(num, 10);
         });
+
+        it('single negative number', () => {
+            let num = random.int(-10, -10);
+            assert.strictEqual(num, -10);
+        });
     });
 
     describe('#float', () => {
