@@ -142,8 +142,15 @@ for (let value of gather([1, 2, 3])) {
 - `seed.mac()`: return mac address randomly.
 - `seed.md5()`: return md5 string randomly.
 - `seed.mimeType()`: return MIME Type randomly.
+- `seed.name()`: return name randomly.
+    - `seed.name.en()`: return name.
+    - `seed.name.en.firstName()`: return first name.
+    - `seed.name.en.lastName()`: return last name.
+    - `seed.name.cn()`: return chinese name.
+    - `seed.name.cn.firstName()`: return chinese first name.
+    - `seed.name.cn.lastName()`: return chinese last name.
 - `seed.paragraph([min=1, max=10])`: return paragraph text randomly.
-- `seed.sha1()`: return SHA1 string randomly.
+- `seed.sha([type=1])`: return SHA1 or SHA256 string randomly.
 - `seed.time([hourType=24])`: return time randomly, eg. `13:17` in default, `1:17 PM` when `hourType=12`
 - `seed.url([options = {protocol:true, host: true, path: true, query: true}])`: return a url randomly.
     - `seed.url.protocol`: return url protocol randomly, like http, file, ftp.
@@ -153,6 +160,7 @@ for (let value of gather([1, 2, 3])) {
     - `seed.url.query`: return url query string randomly.
 - `seed.uuid()`: return uuid.
 - `seed.word([min=1, max=10])`: return a word randomly.
+    - `seed.word.cn()`: return chinese word randomly.
 - `seed.xss()`: return xss script, eg. `<script>alert("xss");</script>`
     - `seed.xss.noStrict()`: return html text, eg. `<a href="javascript:void(0)">click me!</a>`
 
