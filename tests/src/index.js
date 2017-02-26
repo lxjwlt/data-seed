@@ -71,7 +71,7 @@ describe('index.js', () => {
         hooks.clear();
     });
 
-    it('all could be hook', () => {
+    it('all should be hook', () => {
         indexMod.hook(() => {
             return 'test-all-hook';
         });
