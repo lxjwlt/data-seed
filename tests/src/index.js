@@ -71,7 +71,34 @@ describe('index.js', () => {
         hooks.clear();
     });
 
+    it('all could be hook', () => {
+        indexMod.hook(() => {
+            return 'test-all-hook';
+        });
+
+        traverseSeed(indexMod.seed, (seed) => {
+            if (typeof seed === 'function') {
+                assert.strictEqual(seed(), 'test-all-hook');
+            }
+        });
+
+        hooks.clear();
+    });
+
 });
+
+function traverseSeed (seed, callback) {
+    for (let subSeedName of Object.keys(seed)) {
+        let subSeed = seed[subSeedName];
+
+        callback(subSeed, subSeedName);
+
+        if (typeof subSeed === 'function' ||
+            subSeed && typeof subSeed === 'object' && !Array.isArray(subSeed)) {
+            traverseSeed(subSeed, callback);
+        }
+    }
+}
 
 function strictEqualMod (obj, dir) {
     assert.isObject(obj);
