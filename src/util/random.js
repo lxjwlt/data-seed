@@ -46,4 +46,42 @@ random.one = function () {
     return random.array(Array.from(arguments));
 };
 
+random.chance = function (config) {
+    let keys = Object.keys(config);
+
+    let pointList = [0];
+
+    let proportion = keys.map((value, i) => {
+
+        if (value.match(/%$/)) {
+            value = parseFloat(value) / 100;
+        } else {
+            value = Number(value);
+        }
+
+        value = value || 0;
+
+        pointList.push((pointList[i]) + value);
+
+        return value;
+    });
+
+    let sum = proportion.reduce((last, cur) => last + cur);
+
+    let randomValue = random.float(0, sum);
+
+    let index = 0;
+
+    for (; index < pointList.length; index++) {
+        let next = pointList[index + 1] || Infinity;
+        if (randomValue > pointList[index] && randomValue < next) {
+            break;
+        }
+    }
+
+    let targetValue = config[keys[index]];
+
+    return typeof targetValue === 'function' ? targetValue() : targetValue;
+};
+
 module.exports = random;

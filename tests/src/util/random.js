@@ -115,4 +115,42 @@ describe('random.js', function () {
         });
 
     });
+
+    describe('#chance', () => {
+
+        it('multi items', () => {
+            let numList = [];
+
+            for (let i = 0; i < 1000; i++) {
+                numList.push(random.chance({
+                    '0.1': 1,
+                    '0.7': 3,
+                    '0.2': 2
+                }));
+            }
+
+            assert.include(numList, 1);
+            assert.include(numList, 2);
+            assert.include(numList, 3);
+        });
+
+        it('percent', () => {
+            let num = random.chance({
+                '200%': 1
+            });
+
+            assert.strictEqual(num, 1);
+        });
+
+        it('value is function', () => {
+            let num = random.chance({
+                '1': () => {
+                    return 2;
+                }
+            });
+
+            assert.strictEqual(num, 2);
+        });
+
+    });
 });
