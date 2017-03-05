@@ -33,87 +33,6 @@ seed.ip4(); // 23.4.126.0
 ip4(); // 1.1.1.123
 ```
 
-## Utils
-
-### `util.deep`
-
-`util.deep` accepts a callback function which will return data.
-
-The callback function accepts 4 arguments:
-
-- `DEEP`: identify data loop
-- `DONE`: return `DONE` will stop loop
-- `level`: record the deep level of data
-- `isFirst`: whether first data
-
-Create a tree nodes:
-
-```javascript
-const {util: {deep}} = require('data-seed');
-
-let data = deep((DEEP, DONE, level, isFirst) => {
-    return level < 2 ? {
-        name: 'lxjwlt',
-        nodes: DEEP
-    } : DONE;
-});
-
-/*
-    data:
-    {
-        name: 'lxjwlt',
-        nodes: {
-            name: 'lxjwlt'
-        }
-    }
-*/
-```
-
-### `util.random`
-
-- `util.random.float([min = 0, max = 1])`: create a float number randomly.
-- `util.random.int([min=0, max=1])`: create a integer number randomly.
-- `util.random.letter([min='a', max='z'])`: create a letter randomly.
-- `util.random.array(arr)`: return a item within the array randomly.
-- `util.random.one([...])`: return a item from arguments randomly.
-
-### `util.arr(num, callback)`
-
-Callback function return element of array:
-
-```javascript
-const {util: {arr}} = require('data-seed');
-
-arr(2, (i) => i); // [0, 1]
-arr(2, 10); // [10, 10]
-```
-
-### `util.gather(data)`
-
-```javascript
-const {util: {gather}} = require('data-seed');
-
-let list = gather([1, 2, 3]);
-
-let item1 = list.next(); // one of [1, 2, 3] randomly
-let item2 = list.next(); // one of [1, 2, 3] randomly
-let item3 = list.next(); // one of [1, 2, 3] randomly
-
-item1 !== item2; // true
-item2 !== item3; // true
-item1 !== item3; // true
-
-list.next(); // undefined
-```
-
-And support iterator:
-
-```javascript
-for (let value of gather([1, 2, 3])) {
-    value; // one of [1, 2, 3] randomly
-}
-```
-
 ## Seeds
 
 - `seed.avatar()`: return random avatar url from https://robohash.org/.
@@ -163,6 +82,96 @@ for (let value of gather([1, 2, 3])) {
     - `seed.word.cn()`: return chinese word randomly.
 - `seed.xss()`: return xss script, eg. `<script>alert("xss");</script>`
     - `seed.xss.noStrict()`: return html text, eg. `<a href="javascript:void(0)">click me!</a>`
+
+## Utils
+
+### `util.deep`
+
+`util.deep` accepts a callback function which will return data.
+
+The callback function accepts 4 arguments:
+
+- `DEEP`: identify data loop
+- `DONE`: return `DONE` will stop loop
+- `level`: record the deep level of data
+- `isFirst`: whether first data
+
+Create a tree nodes:
+
+```javascript
+const {util: {deep}} = require('data-seed');
+
+let data = deep((DEEP, DONE, level, isFirst) => {
+    return level < 2 ? {
+        name: 'lxjwlt',
+        nodes: DEEP
+    } : DONE;
+});
+
+/*
+    data:
+    {
+        name: 'lxjwlt',
+        nodes: {
+            name: 'lxjwlt'
+        }
+    }
+*/
+```
+
+### `util.random`
+
+- `random.float([min = 0, max = 1])`: create a float number randomly.
+- `random.int([min=0, max=1])`: create a integer number randomly.
+- `random.letter([min='a', max='z'])`: create a letter randomly.
+- `random.array(arr)`: return a item within the array randomly.
+- `random.one([...])`: return a item from arguments randomly.
+- `random.chance(obj)`: specify random probability:
+
+    ```javascript
+    random.chance({
+        '10%': 1,                       // 10% to return 1
+        '0.4': 2,                       // 40% to 2
+        '0.5': () => random.one(3, 4);  // 50% to 3 or 4
+    });
+    ```
+
+### `util.arr(num, callback)`
+
+Callback function return element of array:
+
+```javascript
+const {util: {arr}} = require('data-seed');
+
+arr(2, (i) => i); // [0, 1]
+arr(2, 10); // [10, 10]
+```
+
+### `util.gather(data)`
+
+```javascript
+const {util: {gather}} = require('data-seed');
+
+let list = gather([1, 2, 3]);
+
+let item1 = list.next(); // one of [1, 2, 3] randomly
+let item2 = list.next(); // one of [1, 2, 3] randomly
+let item3 = list.next(); // one of [1, 2, 3] randomly
+
+item1 !== item2; // true
+item2 !== item3; // true
+item1 !== item3; // true
+
+list.next(); // undefined
+```
+
+And support iterator:
+
+```javascript
+for (let value of gather([1, 2, 3])) {
+    value; // one of [1, 2, 3] randomly
+}
+```
 
 ## custom seed
 
